@@ -58,5 +58,6 @@ class InteractiveRecord
   def self.find_by(attribute)
     column = self.column_names.find { |column| column == attribute.keys.first.to_s }
     sql = "SELECT * FROM #{self.table_name} WHERE #{column} = ?"
+    DB[:conn].execute(sql, attribute[column.to_sym])
   end
 end
