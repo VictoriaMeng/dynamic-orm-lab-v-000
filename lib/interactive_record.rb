@@ -25,4 +25,11 @@ class InteractiveRecord
   def initialize(attributes={})
     attributes.each { |key, value| self.send("#{key}=", value) }
   end
+
+  def table_name_for_insert
+    self.class.table_name
+  end
+
+  def col_names_for_insert
+  end
 end
