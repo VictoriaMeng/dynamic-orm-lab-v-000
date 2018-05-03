@@ -56,7 +56,7 @@ class InteractiveRecord
   end
 
   def self.find_by(attribute)
-    column = self.column_names.find { |column| column == attribute.keys[0] }
+    column = self.column_names.find { |column| column == attribute.keys.first.to_s }
     sql = "SELECT * FROM #{self.table_name} WHERE #{attribute.key.to_s} = ?"
   end
 end
